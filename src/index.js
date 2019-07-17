@@ -39,6 +39,7 @@ const templateMenu =[
 ]
 function NewCreateWinwdow(){
     Nwin = new BrowserWindow({width:800, height: 600, title:'New windows', fullscreen: false })
+    Nwin.setMenu(null)
     Nwin.loadURL(url.format({
         pathname: path.join(__dirname,'views/newWindows.html'),
         format: 'file',
