@@ -1,0 +1,17 @@
+{
+  "name": "control_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "dependencies": {
+    "electron": "^5.0.7",
+    "electron-reload": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
