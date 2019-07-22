@@ -6,12 +6,24 @@ if (process.env.NODE_ENV !== 'production' ) {
         electron: path.join(__dirname,'../node_modules','bin','electron')
     })
 }
+
+
 let win
 let Nwin
+let pantalla
+function pantallacomleta(){
+    pantalla= true;
+    console.log(pantalla)
+    return pantalla 
+   
+}
+
+
 function createWindows() {
     win = new BrowserWindow({
         height: 1000,
-        height: 800
+        height: 800,
+        show: true, 
     }),
     win.loadURL(url.format({
         pathname: path.join(__dirname,'views/index.html'),
@@ -32,6 +44,12 @@ const templateMenu =[
                 accelerator: 'Ctr + N',
                 click(){
                     NewCreateWinwdow()
+                },
+
+                label:'pantalla completa',
+                accelerator: 'F11',
+                click(){
+                    pantallacomleta()
                 }
             }
         ]
