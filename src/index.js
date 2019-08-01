@@ -32,37 +32,49 @@ function createWindows() {
         
     }))
 
-       const menol = Menu.buildFromTemplate(templateMenu);
-        Menu.setApplicationMenu(menol)
+      const menol = Menu.buildFromTemplate(templateMenu);
+        Menu.setApplicationMenu(menol);
+       
 }
 const templateMenu =[
     {
         label: 'file',
         submenu: [
             {
-                label: 'new Producto',
-                accelerator: 'Ctr + N',
+                label: 'setting',
+                accelerator: 'Ctrl + N',
                 click(){
                     NewCreateWinwdow()
-                },
-
-                label:'pantalla completa',
-                accelerator: 'F11',
-                click(){
-                    pantallacomleta()
                 }
             }
-        ]
+        ],
+        
+       
+
+    
     }
 ]
+
 function NewCreateWinwdow(){
     Nwin = new BrowserWindow({width:800, height: 600, title:'New windows', fullscreen: false })
-    Nwin.setMenu(null)
     Nwin.loadURL(url.format({
-        pathname: path.join(__dirname,'views/newWindows.html'),
+        pathname: path.join(__dirname,'views/configuracion.html'),
         format: 'file',
         slashes: true
     }))
 }
+
 app.on('ready',createWindows)
 
+if(process.env.NODE_ENV !== 'production'){
+    templateMenu.push({
+        label: 'devtool',
+        submenu:[{
+            label: 'desaarrollo',
+            click(item, focusedWinw) {
+                focusedWinw.toggleDevTools()
+                
+            }
+        }]    
+    })
+}
